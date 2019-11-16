@@ -1,0 +1,376 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Docker使用 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="docker安装与使用.html" />
+    
+    
+    <link rel="prev" href="../" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="docker安装与使用.html">
+            
+                <a href="docker安装与使用.html">
+            
+                    
+                    Docker使用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="docker安装与使用.html">
+            
+                <a href="docker安装与使用.html">
+            
+                    
+                    docker安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="docker安装与使用.html">
+            
+                <a href="docker安装与使用.html">
+            
+                    
+                    docker安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Docker使用</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="docker-&#x5B89;&#x88C5;&#x4E0E;&#x4F7F;&#x7528;">docker &#x5B89;&#x88C5;&#x4E0E;&#x4F7F;&#x7528;</h3>
+<h4 id="1docker-&#x5B89;&#x88C5;&#x4E0E;&#x914D;&#x7F6E;">1.docker &#x5B89;&#x88C5;&#x4E0E;&#x914D;&#x7F6E;</h4>
+<ol>
+<li><p>win10 docker&#x865A;&#x62DF;&#x673A; &#x5207;&#x6362;root&#x7528;&#x6237;</p>
+<pre><code class="lang-shell">sudo -i
+</code></pre>
+</li>
+<li><p>windows &#x8BBF;&#x95EE;docker&#x5BB9;&#x5668;&#x914D;&#x7F6E;</p>
+</li>
+</ol>
+<pre><code class="lang-shell">#cmd&#x73AF;&#x5883;&#x4E0B;&#x6267;&#x884C;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#xFF0C;&#x6DFB;&#x52A0;&#x4E00;&#x6761;&#x8DEF;&#x7531;
+route add -p 172.17.0.0 mask 255.255.0.0 192.168.99.100
+</code></pre>
+<ol>
+<li>docker &#x914D;&#x7F6E;&#x5BB9;&#x5668;ssh &#x8FDC;&#x7A0B;&#x767B;&#x5F55;</li>
+</ol>
+<pre><code class="lang-shell">#1.&#x5B89;&#x88C5;openssh &#x670D;&#x52A1;
+yum -y install openssh-server
+yum -y install openssh-clients
+#2. &#x751F;&#x6210;&#x5BC6;&#x94A5;
+/usr/sbin/sshd-keygen -A
+#3. &#x542F;&#x52A8;ssh&#x670D;&#x52A1;
+/usr/sbin/sshd
+#4.&#x514D;&#x5BC6;&#x7801;&#x672C;&#x673A;&#x8DF3;&#x672C;&#x673A;
+ssh-keygen -t rsa -P &apos;&apos; -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+chmod 0600 ~/.ssh/authorized_keys
+#5. &#x5141;&#x8BB8;root&#x5BC6;&#x7801;&#x767B;&#x5F55;
+vim /etc/ssh/sshd_config #&#x6253;&#x5F00;&#x6CE8;&#x91CA; PermitRootLogin yes, &#x5141;&#x8BB8;&#x5BC6;&#x7801;&#x767B;&#x5F55;,&#x4FDD;&#x5B58;&#x9000;&#x51FA;
+#6. &#x4FEE;&#x6539;&#x5BB9;&#x5668;&#x7AEF;&#x53E3;&#x6620;&#x5C04;
+
+
+#7. &#x4FEE;&#x6539;&#x5BBF;&#x4E3B;&#x4E3B;&#x673A;&#x7AEF;&#x53E3;&#x65B9;
+iptables -A INPUT -p tcp --dport 2222 -j ACCEPT   (&#x8C8C;&#x4F3C;&#x6CA1;&#x7528;&#xFF0C;&#x6700;&#x7EC8;&#x8FD8;&#x662F;&#x7528;22&#x77ED;&#x6263;&#x53EF;&#x4EE5;&#x767B;&#x5F55;)
+iptables-save &gt; /etc/iptables.rules
+</code></pre>
+<h4 id="2-docker-&#x4F7F;&#x7528;&#x4E0E;&#x5E38;&#x7528;&#x547D;&#x4EE4;">2. docker &#x4F7F;&#x7528;&#x4E0E;&#x5E38;&#x7528;&#x547D;&#x4EE4;</h4>
+<ol>
+<li>&#x65B0;&#x5EFA;&#x5BB9;&#x5668;&#x5E76;&#x8FD0;&#x884C;</li>
+</ol>
+<pre><code class="lang-shell">#docker &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5BB9;&#x5668;&#x5E76;&#x8FD0;&#x884C;
+# -i &#x4EE5;&#x4EA4;&#x4E92;&#x6A21;&#x5F0F;&#x8FD0;&#x884C;&#x5BB9;&#x5668; -t &#x4E3A;&#x5BB9;&#x5668;&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x4F2A;&#x8F93;&#x5165;&#x7EC8;&#x7AEF;
+# -p &#x6307;&#x5B9A;&#x7AEF;&#x53E3;&#x6620;&#x5C04;
+# 9aec5c5fe4ba &#x4E3A;&#x955C;&#x50CF;id
+docker run -it  -p 5432:5432 -p 8090:8080  9aec5c5fe4ba   /bin/bash
+</code></pre>
+<ol>
+<li>&#x542F;&#x52A8;&#x5DF2;&#x7EC8;&#x6B62;&#x7684;&#x5BB9;&#x5668;</li>
+</ol>
+<pre><code class="lang-shell"># &#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x5DF2;&#x7EC8;&#x6B62;&#x7684;&#x5BB9;&#x5668; 
+docker  start container_id
+</code></pre>
+<ol>
+<li>&#x5BB9;&#x5668;&#x4E0E;&#x955C;&#x50CF;&#x7684;&#x67E5;&#x770B;</li>
+</ol>
+<pre><code class="lang-shell"># &#x5217;&#x51FA;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x5BB9;&#x5668;
+docker ps
+# &#x5217;&#x51FA;&#x6240;&#x6709;&#x5BB9;&#x5668;
+docker ps -a
+# &#x5217;&#x51FA;&#x6240;&#x6709;&#x955C;&#x50CF;
+docker images
+</code></pre>
+<ol>
+<li>&#x5BB9;&#x5668;&#x5DF2;&#x542F;&#x52A8;&#xFF0C;&#x8FDB;&#x5165;&#x5BB9;&#x5668;</li>
+</ol>
+<pre><code class="lang-shell">docker exec -ti container_id /bin/bash
+</code></pre>
+<ol>
+<li>&#x5220;&#x9664;&#x5BB9;&#x5668;&#x6216;&#x955C;&#x50CF;</li>
+</ol>
+<pre><code class="lang-shell"># &#x5220;&#x9664;&#x5BB9;&#x5668;
+docker rm container_id
+# &#x5220;&#x9664;&#x955C;&#x50CF;
+docker rmi image_id
+</code></pre>
+<ol>
+<li>docker &#x4ECE;&#x5BB9;&#x5668;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x955C;&#x50CF;</li>
+</ol>
+<pre><code class="lang-shell"># &#x4ECE;&#x5BB9;&#x5668;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x955C;&#x50CF;
+# -a &#x955C;&#x50CF;&#x7684;&#x4F5C;&#x8005;
+# -m &#x63D0;&#x4EA4;&#x8BF4;&#x660E;&#x7684;&#x6587;&#x5B57; 
+docker commit -a &quot;haozi&quot; -m &quot;configure pyenv and install python 2.7.3 python 3.7.3&quot; 3bc29b4d47af pyenv:v1
+</code></pre>
+<ol>
+<li><p>&#x5BB9;&#x5668;&#x548C;&#x4E3B;&#x673A;&#x4E4B;&#x95F4;&#x7684;&#x6570;&#x636E;&#x62F7;&#x8D1D;</p>
+<pre><code class="lang-shell"># &#xFF08;Docker Quickstart Terminal&#x5230;&#x6587;&#x4EF6;&#x6240;&#x5728;&#x76EE;&#x5F55;&#x6267;&#x884C;&#x6267;&#x884C; 78299019a3ff&#x4E3A;&#x5BB9;&#x5668;id&#xFF09;
+docker cp stream2stream.json 78299019a3ff:/root/
+</code></pre>
+</li>
+</ol>
+<p>docker cp 78299019a3ff:/root/linkxDI.zip ./ </p>
+<pre><code>#### 3 .docker &#x5E38;&#x89C1;&#x95EE;&#x9898;
+
+&#x4FEE;&#x6539;docker&#x5BB9;&#x5668;&#x7684;&#x7AEF;&#x53E3;&#x53F7;&#xFF1A;
+
+&#x200B;```shell
+ sudo vi /var/lib/docker/containers/b6f79711f78*/hostconfig.json
+ sudo vi /var/lib/docker/containers/b6f79711f78*/config.v2.json
+</code></pre><p>hostconfig.json &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p><img src="docker&#x5B89;&#x88C5;&#x4E0E;&#x4F7F;&#x7528;.assets/1566469534743.png" alt="1566469534743"></p>
+<p>config.v2.json &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p><img src="docker&#x5B89;&#x88C5;&#x4E0E;&#x4F7F;&#x7528;.assets/1566469602056.png" alt="1566469602056"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: 简介">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="docker安装与使用.html" class="navigation navigation-next " aria-label="Next page: docker安装">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Docker使用","level":"1.2","depth":1,"next":{"title":"docker安装","level":"1.2.1","depth":2,"path":"docker/docker安装与使用.md","ref":"docker/docker安装与使用.md","articles":[]},"previous":{"title":"简介","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docker/docker安装与使用.md","mtime":"2019-09-03T02:40:40.920Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-16T03:07:32.373Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
